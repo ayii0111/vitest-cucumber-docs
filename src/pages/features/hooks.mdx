@@ -1,0 +1,37 @@
+import Layout from '../../layouts/Layout.astro'
+
+<Layout title="vitest-cucumber">
+	# Hooks
+
+    **vitest-cucumber** provide some hooks based on vitest hooks like `beforeAll`,
+    `afterAll` etc.
+
+    All hooks are optionnal.
+
+    ~~~typescript
+    describeFeature(feature, ({ AfterAllScenarios, AfterEachScenario, BeforeAllScenarios, BeforeEachScenario, Scenario }) => {
+        BeforeAllScenarios(() => { })
+        BeforeEachScenario(() => { })
+        AfterEachScenario(() => { })
+        AfterAllScenarios(() => { })
+    })
+    ~~~
+
+    #### BeforeAllScenarios
+
+    `BeforeAllScenarios` is run one time when `describeFeature` start. 
+    It's like a `beforeAll`.
+
+    #### AfterAllScenarios
+
+    `AfterAllScenarios` is like `afterAll`. It's called when all `Scenario` and/or `ScenarioOutline` are finished.
+
+    #### BeforeEachScenario
+
+    `BeforeEachScenario` is like `beforeEach`.
+    It's called before each `Scenario` and/or `ScenarioOutline` from `rule` or `feature`.
+
+    #### AfterEachScenario
+
+    `AfterEachScenario` is like `afterEach` for each `Scenario` and/or `ScenarioOutline` from `rule` or `feature`.
+</Layout>
