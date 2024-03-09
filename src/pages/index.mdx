@@ -1,0 +1,48 @@
+import Layout from '../layouts/Layout.astro';
+
+<Layout title="vitest-cucumber">
+	# Presentation
+
+    [vitest-cucumber](https://github.com/amiceli/vitest-cucumber) is a tool (not a plugin)
+    for write unit tests following Gherkin.
+
+    It's inspirated by [jest-cucumber](https://github.com/bencompton/jest-cucumber), but for vitest.
+    It's an opiniated project ;).
+
+    ## Example
+
+    Gherkin `Feature` is writtent in `.feature` file. This is an example : 
+
+    ~~~gherkin
+    # example.feature
+    Feature: use vitest-cucumber with vitest
+        Scenario: Run unit tests
+            Given I have installed vitest-cucumber
+            And   I have a feature like "example.feature"
+            When  I run vitest-cucumber
+            Then  My feature file is parsed
+            And   I can test my scenarios
+    ~~~
+
+    Now you can use it with **vitest-cucumber** : 
+
+    ~~~ts
+    // example-feature.spec.ts
+    import { loadFeature, describeFeature } from '@amiceli/vitest-cucumber'
+
+    const feature = await loadFeature('./example.feature')
+
+    describeFeature(feature, ({ Scenario }) => {
+        Scenario('Run unit tests', ({ Given, When, Then, And }) => {
+            Given('I have installed vitest-cucumber', () => {})
+            And('I have a feature like "example.feature"', () => {})
+            When('I run vitest-cucumber', () => {})
+            Then('My feature file is parsed', () => {})
+            And('I can test my scenarios', () => {})
+        })
+    })
+    ~~~
+
+    Now, if you're intresting you can [install it](/install).
+</Layout>
+
