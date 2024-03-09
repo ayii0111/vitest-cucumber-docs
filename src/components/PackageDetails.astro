@@ -1,0 +1,25 @@
+---
+const packageName = '@amiceli%2Fvitest-cucumber'
+const url = `https://registry.npmjs.org/${packageName}/latest`
+console.debug(url)
+const res = await fetch(url)
+const json = await res.json()
+const { version } = json
+---
+
+<div class="Package-details">
+    <i class="lni lni-npm"></i> 
+    <b>{version}</b>
+</div>
+
+<style lang="scss" scoped>
+    .Package-details {
+        i {
+            font-size: 40px;
+            vertical-align: middle;
+            margin-right: 5px;
+            position: relative;
+            top: -4px;
+        }
+    }
+</style>
