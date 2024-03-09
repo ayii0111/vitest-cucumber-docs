@@ -35,4 +35,20 @@ import NavBar from '../../components/NavBar.astro'
     - non tested `Scenario` and/or `Scenario Outline` steps
     - non tested `Feature`
     - non tested `Rule`
+
+    ## Generate spec file from feature file
+
+    If you want to save time, **vitest-cucumber** can generate a spec file.
+
+    You can use it like this : 
+
+    ~~~bash
+    node node_modules/@amiceli/vitest-cucumber/scripts/cli-generate.cjs <path-to-feature> <path-to-spec>
+    ~~~
+
+    An example : 
+
+    ~~~bash
+    node node_modules/@amiceli/vitest-cucumber/scripts/cli-generate.cjs features/example.feature src/__tests__/example.spec.ts
+    ~~~
 </Layout>

@@ -1,43 +1,74 @@
 ---
+const url = Astro.url;
 
+const pages = [
+    { path: "/", title: "Presentation" },
+    { path: "/install", title: "Installation" },
+    {
+        path: "/features",
+        title: "Features",
+        children: [
+            { path: "/features/gherkin", title: "Gherkin" },
+            { path: "/features/scenario", title: "Scenario" },
+            { path: "/features/scenario", title: "Scenario Outline" },
+            { path: "/features/rule", title: "Rules" },
+            { path: "/features/hooks", title: "Hooks" },
+        ],
+    },
+    { path: "/upcoming", title: "Upcoming" },
+];
+
+function getLinkClass(pageUrl) {
+    return pageUrl === url.pathname ? "is--active" : "";
+}
 ---
 
 <div class="Doc-summary">
     <h2>Documentation</h2>
     <ul>
-        <li>
-            <a href="/">Presentation</a>
-        </li>
-        <li>
-            <a href="/install">Installation</a>
-        </li>
-        <li>
-            <a href="/features">Features</a>
-            <ul>
-                <li>
-                    <a href="/features/gherkin"> Gherkin validation</a>
-                </li>
-                <li>
-                    <a href="/features/scenario"> Scenario</a>
-                </li>
-                <li>
-                    <a href="/features/scenario-outline"> Scenario Outline</a>
-                </li>
-                <li>
-                    <a href="/features/scenario"> Rules</a>
-                </li>
-                <li>
-                    <a href="/features/hooks"> Hooks</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="/upcoming">Upcoming</a>
-        </li>
+        {
+            pages.map((p) => {
+                return (
+                    <li>
+                        <a href={p.path} class={getLinkClass(p.path)}>
+                            {p.title}
+                        </a>
+                        {p.children?.length > 0 && (
+                            <ul>
+                                {p.children?.map((child) => {
+                                    return (
+                                        <li>
+                                            <a
+                                                href={child.path}
+                                                class={getLinkClass(child.path)}
+                                            >
+                                                {child.title}
+                                            </a>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        )}
+                    </li>
+                );
+            })
+        }
     </ul>
 </div>
 
 <style lang="scss" scoped>
     .Doc-summary {
+        li {
+            list-style-type: none;
+            ul {
+                margin-bottom: 5px;
+            }
+        }
+        a {
+            text-decoration: none;
+            &.is--active {
+                color: var(--main-color);
+            }
+        }
     }
 </style>
