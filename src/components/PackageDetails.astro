@@ -1,20 +1,27 @@
 ---
-const packageName = '@amiceli%2Fvitest-cucumber'
-const url = `https://registry.npmjs.org/${packageName}/latest`
-console.debug(url)
-const res = await fetch(url)
-const json = await res.json()
-const { version } = json
+const packageName = "@amiceli%2Fvitest-cucumber";
+const url = `https://registry.npmjs.org/${packageName}/latest`;
+
+const res = await fetch(url);
+const json = await res.json();
+const { version } = json;
+
+const releaseUrl = `https://github.com/amiceli/vitest-cucumber/releases/tag/v${version}`;
 ---
 
 <div class="Package-details">
-    <i class="lni lni-npm"></i> 
-    <b>{version}</b>
+    <i class="lni lni-npm"></i>
+    <a href={releaseUrl} target="_blank">
+        <b>{version}</b>
+    </a>
 </div>
 
 <style lang="scss" scoped>
     .Package-details {
-        i {
+        a {
+            text-decoration: none;
+        }
+        i.lni {
             font-size: 40px;
             vertical-align: middle;
             margin-right: 5px;
