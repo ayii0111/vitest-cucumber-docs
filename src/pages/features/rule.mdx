@@ -1,0 +1,53 @@
+import Layout from '../../layouts/Layout.astro'
+
+<Layout title="vitest-cucumber">
+    # Rule
+
+    **NB** : in your feature file. if you have `Scenario` / `Scenario Outline` not in rule.
+    They should de ordered before `Rule`.
+
+    For example, if you write this : 
+
+    ~~~feature
+    Feature: Run tests with Rule
+        Rule: I've specific Scenario
+            Scenario: I'm rule's scenario
+                Given I use vitest-cucumber
+                Then  It know I come from a Rule
+        Scenario: I'm feature's scenario
+            Given I use vitest-cucumber
+            Then  It know I come from a Feature
+    ~~~
+
+    **vitest-cucumber** doesn't use indentation, is too complex for a little bring.
+
+    So In this case *I'm feature's scenario* `Scenario` is added to your Rule.
+    
+    ## Rule example
+
+    `Rule` is like a `Feature`, you can declare your scenarios and their steps.
+
+    ~~~javascript
+    describeFeature(feature, ({Rule}) => {
+        Rule(`rule with scenarii`, ({RuleScenario, RuleScenarioOutline}) => {
+            RuleScenario(`rule scenario`, ({Given, When, Then}) => {
+                Given(``, () => {})
+                When(``, () => {})
+                Then(``, () => {})
+            })
+            RuleScenarioOutline(`rule scenario outline`, ({Given, When, Then, And}) => {
+                Given(``, () => {})
+                When(``, () => {})
+                Then(``, () => {})
+                And(``, () => {})
+            })
+        })
+    })
+    ~~~
+
+    ## Hooks
+
+    If you set hooks `BeforeEachScenario` and/or `AfterEachScenario` inside `describeFeature`.
+
+    They will be used in your rule(s) scenario(s).
+</Layout>

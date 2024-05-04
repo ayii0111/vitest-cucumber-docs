@@ -5,9 +5,10 @@ import DocSummary from "../components/DocSummary.astro";
 
 interface Props {
     title: string;
+    hideMenu? : boolean
 }
 
-const { title } = Astro.props;
+const { title, hideMenu } = Astro.props;
 ---
 
 <!doctype html>
@@ -31,17 +32,20 @@ const { title } = Astro.props;
     <body>
         <main class="container-fluid">
             <NavBar />
-            <div class="container">
+            { !hideMenu && <div class="container">
                 <PackageDetails />
-            </div>
-            <div class="container for--grid">
+            </div> }
+            { !hideMenu && <div class="container for--grid">
                 <div class="for--grid__left">
                     <DocSummary />
                 </div>
                 <div class="for--grid__right">
                     <slot />
                 </div>
-            </div>
+            </div> }
+            { hideMenu && <div class="container">
+                <slot />
+            </div> }
         </main>
     </body>
 </html>
