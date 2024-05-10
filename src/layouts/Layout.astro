@@ -1,11 +1,11 @@
 ---
-import PackageDetails from "../components/PackageDetails.astro";
-import NavBar from "../components/NavBar.astro";
 import DocSummary from "../components/DocSummary.astro";
+import NavBar from "../components/NavBar.astro";
+import PackageDetails from "../components/PackageDetails.astro";
 
 interface Props {
-    title: string;
-    hideMenu? : boolean
+	title: string;
+	hideMenu?: boolean;
 }
 
 const { title, hideMenu } = Astro.props;

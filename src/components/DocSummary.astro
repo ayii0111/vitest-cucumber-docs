@@ -2,25 +2,25 @@
 const url = Astro.url;
 
 const pages = [
-    { path: "/", title: "Presentation" },
-    { path: "/install", title: "Installation" },
-    {
-        redirect: "/features/gherkin",
-        title: "Features",
-        children: [
-            { path: "/features/gherkin", title: "Gherkin" },
-            { path: "/features/scenario", title: "Scenario" },
-            { path: "/features/scenario-outline", title: "Scenario Outline" },
-            { path: "/features/rule", title: "Rules", },
-            { path: "/features/background", title: "Background"  },
-            { path: "/features/hooks", title: "Hooks" },
-        ],
-    },
-    { path: "/upcoming", title: "Upcoming" },
+	{ path: "/", title: "Presentation" },
+	{ path: "/install", title: "Installation" },
+	{
+		redirect: "/features/gherkin",
+		title: "Features",
+		children: [
+			{ path: "/features/gherkin", title: "Gherkin" },
+			{ path: "/features/scenario", title: "Scenario" },
+			{ path: "/features/scenario-outline", title: "Scenario Outline" },
+			{ path: "/features/rule", title: "Rules" },
+			{ path: "/features/background", title: "Background" },
+			{ path: "/features/hooks", title: "Hooks" },
+		],
+	},
+	{ path: "/upcoming", title: "Upcoming" },
 ];
 
 function getLinkClass(pageUrl) {
-    return pageUrl === url.pathname ? "is--active" : "";
+	return pageUrl === url.pathname ? "is--active" : "";
 }
 ---
 
