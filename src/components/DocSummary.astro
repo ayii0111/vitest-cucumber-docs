@@ -19,8 +19,8 @@ const pages = [
 	{ path: "/upcoming", title: "Upcoming" },
 ];
 
-function getLinkClass(pageUrl) {
-	return pageUrl === url.pathname ? "is--active" : "";
+function getLinkClass(pageUrl : string) {
+	return url.pathname.includes(pageUrl) ? "is--active" : "";
 }
 ---
 
@@ -45,7 +45,6 @@ function getLinkClass(pageUrl) {
                                             >
                                                 {child.title}
                                             </a>
-                                            { child.beta && <span class="for--beta">beta</span> }
                                         </li>
                                     );
                                 })}
