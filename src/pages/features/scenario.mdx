@@ -1,0 +1,50 @@
+import Layout from '../../layouts/Layout.astro'
+
+<Layout title="vitest-cucumber">
+	# Scenario
+
+    You can use `Scenario` in `Feature` and `Rule`.
+
+    A `Scenario` example : 
+
+    ~~~gherkin
+    # example.feature
+    Feature: Improve my unit tests
+        Scenario: Use vitest-cucumber in my unit tests
+            Given Developer using feature file
+            And   Using vitest-cucumber
+            When  I run my unit tests
+            Then  I know if I forgot a scenario
+    ~~~
+
+    ## Run `Scenario Outline` tests
+
+    ~~~typescript
+    import { loadFeature, describeFeature } from '@amiceli/vitest-cucumber'
+    import { expect } from 'vitest'
+
+    const feature = await loadFeature('path/to/my/file.feature')
+
+    describeFeature(feature, ({ Scenario }) => {
+        Scenario('Use vitest-cucumber in my unit tests', ({ Given, When, Then, And }) => {
+            Given('Developer using feature file', () => {})
+            And('sing vitest-cucumber', () => {})
+            When('I run my unit tests', () => {})
+            Then('I know if I forgot a scenario', () => {})
+        })
+
+    })
+    ~~~
+
+    ## Validation
+
+    vitest-cucumber will check:
+    - correct scenario name
+    - correct steps name
+    - scenario is called
+    - scenario steps are called
+
+    ## Synonym
+
+    Same thing if you use `Example`.
+</Layout>
