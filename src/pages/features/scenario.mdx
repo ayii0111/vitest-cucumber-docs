@@ -36,6 +36,19 @@ import Layout from '../../layouts/Layout.astro'
     })
     ~~~
 
+    ## Task context
+
+    In each step like `Given`, `Then` etc you can use vitest [TaskContext](https://vitest.dev/guide/test-context.html#built-in-test-context).
+    <br />
+    For example : 
+
+    ~~~typescript
+    Given('Developer using feature file', (ctx) => { 
+        console.log(ctx.task.name)
+        ctx.skip()
+    })
+    ~~~
+
     ## Validation
 
     vitest-cucumber will check:
