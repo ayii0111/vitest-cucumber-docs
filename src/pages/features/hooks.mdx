@@ -9,7 +9,9 @@ import Layout from '../../layouts/Layout.astro'
     All hooks are optionnal.
 
     ~~~typescript
-    describeFeature(feature, ({ AfterAllScenarios, AfterEachScenario, BeforeAllScenarios, BeforeEachScenario, Scenario }) => {
+    describeFeature(feature, ({ 
+        AfterAllScenarios, AfterEachScenario, BeforeAllScenarios, BeforeEachScenario, Scenario
+    }) => {
         BeforeAllScenarios(() => { })
         BeforeEachScenario(() => { })
         AfterEachScenario(() => { })
