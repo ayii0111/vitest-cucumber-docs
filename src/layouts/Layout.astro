@@ -198,8 +198,14 @@ function getLinkClass(pageUrl : string) : boolean {
         text-align: center;
     }
 
-    .astro-code {
+    .astro-code:not(.without--padding) {
         padding: 24px;
+    }
+    code {
+        color : #D2A8FF;
+    }
+    h1, h2, h3 {
+        color : #25D96C;
     }
 </style>
 
