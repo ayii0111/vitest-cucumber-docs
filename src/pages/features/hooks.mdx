@@ -33,7 +33,13 @@ import Layout from '../../layouts/Layout.astro'
     `BeforeEachScenario` is like `beforeEach`.
     It's called before each `Scenario` and/or `ScenarioOutline` from `rule` or `feature`.
 
+    But `BeforeEachScenario` isn't called after each `Background`.
+
+    `Background` can be considered like `BeforeEachScenario` but following Gherkin syntax with steps EventCounts.
+
     #### AfterEachScenario
 
     `AfterEachScenario` is like `afterEach` for each `Scenario` and/or `ScenarioOutline` from `rule` or `feature`.
+
+    `AfterEachScenario` isn't called after each `Background`. Is run before `Scenario` + `Background` "couple".
 </Layout>
