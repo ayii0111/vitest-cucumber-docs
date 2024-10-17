@@ -1,12 +1,12 @@
 ---
-const packageName = "@amiceli%2Fvitest-cucumber";
-const url = `https://registry.npmjs.org/${packageName}/latest`;
+const packageName = "@amiceli%2Fvitest-cucumber"
+const url = `https://registry.npmjs.org/${packageName}/latest`
 
-const res = await fetch(url);
-const json = await res.json();
-const { version } = json;
+const res = await fetch(url)
+const json = await res.json()
+const { version } = json
 
-const releaseUrl = `https://github.com/amiceli/vitest-cucumber/releases/tag/v${version}`;
+const releaseUrl = `https://github.com/amiceli/vitest-cucumber/releases/tag/v${version}`
 ---
 
 <div class="package-details">

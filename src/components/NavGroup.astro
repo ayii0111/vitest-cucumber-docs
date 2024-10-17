@@ -1,8 +1,8 @@
 ---
-const url = Astro.url;
+const url = Astro.url
 
 function getLinkClass(pageUrl: string): boolean {
-	return url.pathname.replaceAll("/", "") === pageUrl.replaceAll("/", "");
+    return url.pathname.replaceAll("/", "") === pageUrl.replaceAll("/", "")
 }
 ---
 
