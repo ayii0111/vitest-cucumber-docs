@@ -19,7 +19,7 @@ import Layout from '../../layouts/Layout.astro'
             ```
     ~~~
     
-    DocStrings value is passed at last parmeters in your step callback : 
+    DocStrings value is passed as the last parameter in your step callback: 
 
     ~~~typescript
     describeFeature(feature, (f) => {
@@ -37,9 +37,9 @@ import Layout from '../../layouts/Layout.astro'
     })
     ~~~
 
-    ## DocStrings with Scneario Outline
+    ## DocStrings with Scenario Outline
 
-    When you use DocStrings in `Scenario Outline`, variable like `<framework>`
+    When you use DocStrings in a `Scenario Outline`, variables like `<framework>`
     are replaced with `Examples`.
 
     ~~~gherkin
@@ -59,18 +59,18 @@ import Layout from '../../layouts/Layout.astro'
                 | Stencil   | 2.0.4   |
     ~~~
 
-    Example in your unit tests : 
+    Example: 
 
     ~~~typescript
     describeFeature(feature, ({f}) => {
         f.ScenarioOutline(`DocStrings outline example`, ({Given, Then}, variables) => {
-            Given(`I use vitest-cucumber with <framework>`, (ctx, docStrings : string) => {
+            Given(`I use vitest-cucumber with <framework>`, (ctx, docStrings: string) => {
                 expect([
                     'Vue is a front-end framework',
                     'Stencil is a front-end framework',
                 ]).toContain(docStrings)
             })
-            Then(`I use vitest <version>`, (ctx, docStrings : string) => {
+            Then(`I use vitest <version>`, (ctx, docStrings: string) => {
                 expect([
                     'vitest 2.0.0 allow to use test.for',
                     'vitest 2.0.4 allow to use test.for',
@@ -82,9 +82,8 @@ import Layout from '../../layouts/Layout.astro'
 
     ## DocStrings with step expressions
 
-    In your tests when you use use Docstrings and expression like `{string}`.
-    
-    DocStrings value is last params : 
+    In your tests when you use Docstrings and expression like `{string}`, DocStrings value is always the last parameter.
+    See the example below: 
 
     ~~~gherkin
     Feature: DocStrings
