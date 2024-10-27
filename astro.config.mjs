@@ -1,11 +1,14 @@
+import mdx from "@astrojs/mdx"
+import pagefind from "astro-pagefind"
 import { defineConfig } from "astro/config"
 
-import mdx from "@astrojs/mdx"
-
 export default defineConfig({
-    integrations: [mdx()],
+    integrations: [mdx(), pagefind()],
     devToolbar: {
         enabled: false,
+    },
+    build: {
+        format: "file",
     },
     markdown: {
         shikiConfig: {
