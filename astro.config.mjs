@@ -27,6 +27,10 @@ export default defineConfig({
                             label: "Configuration",
                             slug: "get-started/configuration",
                         },
+                        {
+                            label: "Browser mode",
+                            slug: "get-started/browser-mode",
+                        },
                     ],
                 },
                 {

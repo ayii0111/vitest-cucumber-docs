@@ -1,0 +1,43 @@
+---
+title: Browser mode
+description: vitest-cucumber with browser mode
+---
+
+## Configuration
+
+Since `4.3.0` vitest-cucumber works with vitest browser mode
+
+A `vitest.config.js` example : 
+
+```javascript
+export default defineConfig({
+    plugins: [vue()],
+    test: {
+        name: 'vue',
+        globals: true,
+        browser: {
+            enabled: true,
+            name: 'chromium',
+            provider: 'playwright',
+        },
+    },
+})
+```
+
+`globals: true` is required if you want to use env variables like `VITEST_INCLUDE_TAGS`.
+
+## load feature files
+
+You have same features in browser mode. 
+
+Just you have to use `/browser` module :
+
+```javascript
+import { describeFeature, loadFeature } from '@amiceli/vitest-cucumber/browser'
+
+const feature = await loadFeature('ex.feature')
+
+describeFeature(feature, ({ Scenario }) => {
+    // ...
+})
+```
