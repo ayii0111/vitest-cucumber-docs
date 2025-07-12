@@ -2,8 +2,8 @@ import starlight from "@astrojs/starlight"
 import { defineConfig } from "astro/config"
 
 export default defineConfig({
-  site: 'https://ayii0111.github.io',
-  base: '/vitest-cucumber-docs',
+  site: 'https://<你的 GitHub 用戶名>.github.io',
+  base: '/<你的 repo 名稱>',
   integrations: [
     starlight({
       title: "vitest-cucumber",

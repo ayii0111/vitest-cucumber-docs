@@ -3,7 +3,7 @@ import { defineConfig } from "astro/config"
 
 export default defineConfig({
   site: 'https://ayii0111.github.io',
-  base: '/vitest-cucumber-docs',
+  base: '/<你的 repo 名稱>',
   integrations: [
     starlight({
       title: "vitest-cucumber",
