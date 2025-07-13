@@ -3,7 +3,9 @@ import { defineConfig } from "astro/config"
 
 export default defineConfig({
   site: 'https://ayii0111.github.io',
-  base: '/vitest-cucumber-docs',
+  base: process.env.NODE_ENV === 'production' 
+      ? '/vitest-cucumber-docs' 
+      : '/',
     integrations: [
         starlight({
             title: "vitest-cucumber",
